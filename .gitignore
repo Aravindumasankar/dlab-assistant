@@ -125,5 +125,23 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+# idea
+.idea
+
 # Pyre type checker
 .pyre/
+.DS_Store
+/known_people/
+/face/extraction/faces/
+/face/recognition/train/
+/memes/dataset/
+/memes/downloads/
+/processed/
+/unknown_people/
+/uploads/
+/yolo-object-detection/images/
+/yolo-object-detection/output/
+/yolo-object-detection/videos/
+/yolo-object-detection/yolo-coco/
+/object_detection/yolo-coco/
+/yolo-object-detection/
