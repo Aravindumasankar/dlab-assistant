@@ -1,0 +1,56 @@
+{
+  "app": {
+    "API_KEY": "91b9953e-bc21-49bb-9981-2385df149057"
+  },
+  "modules": {
+    "face": {
+      "recognition": {
+        "FUNCTIONS": {
+          "train": {
+                  "n_neighbours":2
+                  }
+        },
+        "NAME": "knn",
+        "BASE_DIR": "knn/",
+        "TRAIN_DIR": "train/",
+        "MODEL_DIR": "model/",
+        "MODEL_EXTENSION": ".clf",
+        "UPLOAD_DIR": "images/",
+        "PROCESSED_DIR": "processed/",
+        "UNKNOWN_PERSONS_DIR": "unknown/",
+        "ALLOWED_EXTENSIONS": [
+          "png",
+          "jpg",
+          "jpeg"
+        ],
+        "MODULE_URL": "face/recognition/",
+        "SUMMARY": "This is an example of using the k-nearest-neighbors (KNN) algorithm for face recognition.\n\nWhen should I use this example?\nThis example is useful when you wish to recognize a large set of known people,\nand make a prediction for an unknown person in a feasible computation time.\n\nAlgorithm Description:\nThe knn classifier is first trained on a set of labeled (known) faces and can then predict the person\nin an unknown image by finding the k most similar faces (images with closet face-features under eucledian distance)\nin its training set, and performing a majority vote (possibly weighted) on their label."
+      },
+      "extraction": {
+        "FUNCTIONS": {
+          "train": {
+                  "n_neighbours":2
+                  }
+        },
+        "NAME": "extraction",
+        "BASE_DIR": "extraction/",
+        "TRAIN_DIR": "",
+        "MODEL_DIR": "model/",
+        "MODEL_FILES": ["deploy.prototxt", "weights.caffeemodel"],
+        "UPLOAD_DIR": "images/",
+        "PROCESSED_DIR": "processed/",
+        "FACES_DIR": "faces/",
+        "ALLOWED_EXTENSIONS": [
+          "png",
+          "jpg",
+          "jpeg"
+        ],
+        "MODULE_URL": "face/extraction/",
+        "SUMMARY": "This is an example of using the k-nearest-neighbors (KNN) algorithm for face recognition.\n\nWhen should I use this example?\nThis example is useful when you wish to recognize a large set of known people,\nand make a prediction for an unknown person in a feasible computation time.\n\nAlgorithm Description:\nThe knn classifier is first trained on a set of labeled (known) faces and can then predict the person\nin an unknown image by finding the k most similar faces (images with closet face-features under eucledian distance)\nin its training set, and performing a majority vote (possibly weighted) on their label."
+      }
+    },
+    "ocr": {
+
+    }
+  }
+}
