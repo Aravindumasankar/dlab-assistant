@@ -304,9 +304,9 @@ def extract():
                                                            today_model_file)
     jsonified_data = jsonify(data)
     # update 'data' if 'name' exists otherwise insert new document
-    data['post_id'] = collection.find_one_and_update({"name": file_name},
-                                   {"$set": {"data": data}},
-                                   upsert=True)
+    # data['post_id'] = collection.find_one_and_update({"name": file_name},
+    #                                {"$set": {"data": data}},
+    #                                upsert=True)
     return jsonified_data
 
 @app.route('/meme/classify/')
