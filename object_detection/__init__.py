@@ -34,7 +34,7 @@ def detectObj(filename, filepath, ini_confidence=0.5, ini_threshold=0.3):
 
         # determine only the *output* layer names that we need from YOLO
         ln = net.getLayerNames()
-        ln = [ln[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+        ln = [ln[i-1] for i in net.getUnconnectedOutLayers()]
 
         # construct a blob from the input image and then perform a forward
         # pass of the YOLO object detector, giving us our bounding boxes and
