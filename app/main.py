@@ -25,6 +25,7 @@ import ocr
 from datetime import date, datetime
 from functools import wraps
 from flask import Flask, request, jsonify, abort, send_from_directory, send_file
+from flask_cors import CORS
 import json
 import wget
 import object_detection
@@ -51,16 +52,9 @@ with open('config.json') as f:
 
 TODAY_MODEL = str(date.today())
 API_KEY = app_config['app']['API_KEY']
-try:
-    conn = MongoClient('mongodb://localhost:27017/')
-    db = conn.memes
-    collection = db.meme
-    print("Connected successfully!!!")
-except:
-    print("Could not connect to MongoDB")
 
 app = Flask(__name__)
-
+cors = CORS(app)
 
 # The actual decorator function check api key
 def require_appkey(view_function):
