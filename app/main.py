@@ -266,7 +266,8 @@ def extract():
     wget.download(image_url,upload_dir)
     data['_id'] = str(uuid.uuid4())
     data['file_name'] = file_name
-    data['file_path'] = request.url_root+file_path
+    data['file_path'] = file_path
+    data['uploaded'] = request.url_root+file_path
     data['processed_filepath'] =  request.url_root+'processed/'+file_name
     if recog == 'objects' or recog == 'all':
         # OBJECT DETECTION
