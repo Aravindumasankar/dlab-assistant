@@ -25,6 +25,7 @@ import ocr
 from datetime import date, datetime
 from functools import wraps
 from flask import Flask, request, jsonify, abort, send_from_directory, send_file
+from flask_cors import CORS, cross_origin
 import json
 import wget
 import object_detection
@@ -60,6 +61,7 @@ except:
     print("Could not connect to MongoDB")
 
 app = Flask(__name__)
+cors = CORS(app)
 
 
 # The actual decorator function check api key
@@ -253,6 +255,7 @@ def classify():
 
 
 @app.route('/meme/recognize')
+@cross_origin()
 @require_appkey
 def extract():
     data = {}
@@ -303,7 +306,6 @@ def extract():
         data['face_recogniton'] = face_recognition.predict(data['file_name'], data['file_path'], None,
                                                            today_model_file)
     jsonified_data = jsonify(data)
-    jsonified_data.headers.add("Access-Control-Allow-Origin", "*")
     # update 'data' if 'name' exists otherwise insert new document
     # data['post_id'] = collection.find_one_and_update({"name": file_name},
     #                                {"$set": {"data": data}},
