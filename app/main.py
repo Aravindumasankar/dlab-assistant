@@ -254,7 +254,6 @@ def classify():
 
 
 @app.route('/meme/recognize')
-@require_appkey
 def extract():
     data = {}
     image_url = request.args.get('image_url')
