@@ -254,6 +254,7 @@ def classify():
 
 
 @app.route('/meme/recognize',methods=['POST'])
+@require_appkey
 def extract():
     data = {}
     image_url = request.form['image_url']
