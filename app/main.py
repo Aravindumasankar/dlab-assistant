@@ -25,6 +25,7 @@ import ocr
 from datetime import date, datetime
 from functools import wraps
 from flask import Flask, request, jsonify, abort, send_from_directory, send_file
+from flask_cors import CORS
 import json
 import wget
 import object_detection
@@ -32,6 +33,7 @@ import object_detection
 logging.basicConfig(filename='app.log')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
+
 
 # create console handler and set level to debug
 ch = logging.StreamHandler()
@@ -60,6 +62,7 @@ except:
     print("Could not connect to MongoDB")
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/meme/*": {"origins": "*"}})
 
 
 # The actual decorator function check api key
