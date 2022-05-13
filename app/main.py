@@ -60,7 +60,6 @@ except:
     print("Could not connect to MongoDB")
 
 app = Flask(__name__)
-cors = CORS(app)
 
 
 # The actual decorator function check api key
