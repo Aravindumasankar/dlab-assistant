@@ -256,8 +256,8 @@ def classify():
 @app.route('/meme/recognize',methods=['POST'])
 def extract():
     data = {}
-    image_url = request.form.['image_url']
-    recog = request.form.get['type']
+    image_url = request.form['image_url']
+    recog = request.form['type']
     upload_dir = 'uploads/'
     # Create directory 'uploads' if it does not exist
     if not os.path.exists(upload_dir):
