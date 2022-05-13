@@ -79,6 +79,7 @@ def require_appkey(view_function):
 def info():
     data = {'available_modules': app_config['modules']}
     resp = jsonify(data)
+    resp.headers.add('Access-Control-Allow-Origin', '*')
     resp.status_code = 200
     return resp
 
