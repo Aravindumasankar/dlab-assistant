@@ -266,8 +266,8 @@ def extract():
     wget.download(image_url,upload_dir)
     data['_id'] = str(uuid.uuid4())
     data['file_name'] = file_name
-    data['file_path'] = file_path
-    data['processed_filepath'] =  request.url_root+'/processed/'+file_name
+    data['file_path'] = request.url_root+file_path
+    data['processed_filepath'] =  request.url_root+'processed/'+file_name
     if recog == 'objects' or recog == 'all':
         # OBJECT DETECTION
         data['object_detection'] = []
@@ -295,7 +295,7 @@ def extract():
         # FACE RECOGNITION
         today_model_file = 'face/recognition/model/vadivelu_trained_knn_model_.clf'
         # today_model_file = 'face/recognition/model/' + str(date.today()) + '_trained_knn_model.clf'
-        data['face_recogniton'] = face_recognition.predict(data['file_name'], data['file_path'], None,
+        data['face_recogniton'] = face_recognition.predict(request.url_root,data['file_name'], data['file_path'], None,
                                                            today_model_file)
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', '*')
