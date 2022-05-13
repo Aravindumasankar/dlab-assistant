@@ -253,7 +253,7 @@ def classify():
             return resp
 
 
-@app.route('/meme/recognize',methods=['POST']')
+@app.route('/meme/recognize',methods=['POST'])
 def extract():
     data = {}
     image_url = request.body.get('image_url')
