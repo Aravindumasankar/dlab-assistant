@@ -297,7 +297,7 @@ def extract():
     if recog == 'objects' or recog == 'all':
         # OBJECT DETECTION
         data['object_detection'] = []
-        data['object_detection'].append({"yolo":object_detection.detectObj(file_name,data['face_recogniton']['processed_image_file'])})
+        data['object_detection'].append({"yolo":object_detection.detectObj(file_name,data['file_path'])})
         
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', '*')

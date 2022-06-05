@@ -112,7 +112,11 @@ def detectObj(filename, filepath, ini_confidence=0.5, ini_threshold=0.3):
                 )
                 cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,
                             0.5, color, 2)
-            cv2.imwrite('processed/object/' + filename, image)
+            processed_dir = 'processed/object/'
+            if not os.path.exists(processed_dir):
+                os.makedirs(upload_dir)
+            cv2.imwrite(processed_dir + filename, image)
+            data['processed_image_url'] =  root_url+processed_dir+filename
             return data
     else:
         return {}
