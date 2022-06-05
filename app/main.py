@@ -269,10 +269,6 @@ def extract():
     data['file_path'] = file_path
     data['uploaded'] = request.url_root+file_path
     data['processed_filepath'] =  request.url_root+'processed/'+file_name
-    if recog == 'objects' or recog == 'all':
-        # OBJECT DETECTION
-        data['object_detection'] = []
-        data['object_detection'].append({"yolo":object_detection.detectObj(file_name,data['file_path'])})
     if recog == 'ocr' or recog == 'all':
         # OCR
         # OCR API
@@ -298,6 +294,11 @@ def extract():
         # today_model_file = 'face/recognition/model/' + str(date.today()) + '_trained_knn_model.clf'
         data['face_recogniton'] = face_recognition.predict(request.url_root,data['file_name'], data['file_path'], None,
                                                            today_model_file)
+    if recog == 'objects' or recog == 'all':
+        # OBJECT DETECTION
+        data['object_detection'] = []
+        data['object_detection'].append({"yolo":object_detection.detectObj(file_name,data['face_recogniton']['processed_image_file'])})
+        
     response = jsonify(data)
     response.headers.add('Access-Control-Allow-Origin', '*')
     # update 'data' if 'name' exists otherwise insert new document

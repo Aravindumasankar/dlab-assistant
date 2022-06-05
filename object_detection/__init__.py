@@ -112,7 +112,7 @@ def detectObj(filename, filepath, ini_confidence=0.5, ini_threshold=0.3):
                 )
                 cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,
                             0.5, color, 2)
-            cv2.imwrite('processed/' + filename, image)
+            cv2.imwrite('processed/object/' + filename, image)
             return data
     else:
         return {}
