@@ -114,7 +114,7 @@ def detectObj(filename, filepath, ini_confidence=0.5, ini_threshold=0.3):
                             0.5, color, 2)
             processed_dir = 'processed/object/'
             if not os.path.exists(processed_dir):
-                os.makedirs(upload_dir)
+                os.makedirs(processed_dir)
             cv2.imwrite(processed_dir + filename, image)
             data['processed_image_url'] =  root_url+processed_dir+filename
             return data
