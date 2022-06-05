@@ -9,7 +9,7 @@ import cv2
 import os
 
 
-def detectObj(filename, filepath, ini_confidence=0.5, ini_threshold=0.3):
+def detectObj(root_url, filename, filepath, ini_confidence=0.5, ini_threshold=0.3):
     # load the COCO class labels our YOLO model was trained on
     labelsPath = os.path.join('object_detection/yolo-coco/coco.names')
     LABELS = open(labelsPath).read().strip().split("\n")
